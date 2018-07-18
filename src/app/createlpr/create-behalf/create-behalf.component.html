@@ -1,0 +1,327 @@
+<div class="col-xs-12 accordian-container  req_acc">
+    <div class="col-xs-12 nopad">
+        <div class="col-xs-12 nopad req_title mtop20">
+            Link Proposal Request
+         </div>
+		   <form [formGroup]="adminForm" (ngSubmit)="onSubmit(adminForm)" #formDir="ngForm">
+         
+      <ul class="col-xs-12 nopad create_ul_tool mtop12">
+  
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="LPR Number"  value="Sample value" readonly="true" aria-label="Project name">
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="Old LPR Number" value="Sample value" aria-label="BFM name">
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="Initiated By Name" value="Sample value"  aria-label="WBS">
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                <mat-form-field class="col-xs-12">
+                  <mat-select placeholder="Option for connectivity" formControlName="options"  class="col-xs-12 padlr pleft0">
+                    <mat-option *ngFor="let x of options" [value]="x.value">
+                      {{ x.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                  <mat-form-field class="col-xs-12">
+                    <mat-select placeholder="Type of client last mile connectivity" formControlName="lastmile" class="col-xs-12 padlr pleft0">
+                      <mat-option *ngFor="let x of options" [value]="x.value">
+                        {{ x.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </li>
+                        
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Number of users" value="" formControlName="users"  aria-label="Number of users">
+            </mat-form-field>
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Duration of connectivity(months)" type="number" value="" formControlName="connectivity">
+              </mat-form-field>
+            </li>
+          
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+          <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+            <input matInput placeholder="Business vertical/ Cost center" value="Sample value" readonly="true" aria-label="">
+          </mat-form-field>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="col-xs-12 mtop12 padlr">
+              <input matInput [matDatepicker]="end_date" placeholder="Requested date"  formControlName="rdate" aria-label="Required by date(MM/DD/YYYY)">
+              <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+              <mat-datepicker #end_date></mat-datepicker>
+            </mat-form-field>
+        </li>
+              
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="col-xs-12 mtop12 padlr">
+              <input matInput [matDatepicker]="start_date" placeholder="Required by date" formControlName="reqdate" aria-label="Required by date(MM/DD/YYYY)">
+              <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+              <mat-datepicker #start_date></mat-datepicker>
+            </mat-form-field>
+            <div class="col-xs-12 nopad">
+              <button class="pull-left note_btn">
+                <span class="icon-info pull-left"></span>
+                <span class="pull-left">Info</span>
+              </button>
+              <div class="note_tip">
+                C2S VPN : 2 Weeks, S2S VPN (over shared Infra): 3 weeks, S2S VPN (over dedicated device): 6 weeks, MPLS: 8 to 10 weeks, P2P
+                Link : 8 to 10 weeks, Interoffice MPLS : 6 to 7 weeks. For other link types - please get in touch with IMG Business
+                IT team.
+              </div>
+    
+            </div>
+    
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="On Behalf Of"  readonly="true" value="Sample value" aria-label="Bandwidth(KBPS)">
+              </mat-form-field>
+            </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Billability" value="Sample value"  readonly="true" aria-label="">
+            </mat-form-field>
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+              <mat-form-field class="col-xs-12">
+                <mat-select placeholder="Mode of access" formControlName="options1"  class="col-xs-12 padlr pleft0">
+                  <mat-option *ngFor="let x of mode" [value]="x.value">
+                    {{ x.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Bandwidth Required" value="" formControlName="bandwidth"  aria-label="Bandwidth Required">
+            </mat-form-field>
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="Frequency and amount of data transfer" formControlName="frequency"  value="" aria-label="frequency">
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                  <input matInput placeholder="Details of any additional desktop h/w over standard configuration" formControlName="desktop" value="" aria-label="Number of users">
+                </mat-form-field>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                  <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                    <input matInput placeholder="Details of and additional software over standard configuration"  formControlName="software"  value="" aria-label="Number of users">
+                  </mat-form-field>
+                </li>
+              
+           <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                  <mat-form-field class="col-xs-12">
+                    <mat-select placeholder="Bandwidth type"  formControlName="bandwidthtype" class="col-xs-12 padlr pleft0">
+                      <mat-option *ngFor="let x of bandwidth" [value]="x.value">
+                        {{ x.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </li>
+    
+      
+      </ul>
+  
+    <div class="col-xs-12 nopad">
+        <div class="col-xs-12 nopad req_title mtop20">
+            Location address details
+         </div>
+  
+      <div class="col-xs-12 nopad custom_req_title mtop20">
+          Location A address details 
+      </div>
+      <ul class="col-xs-12 nopad create_ul mtop12">
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="Company Name" formControlName="company" value="" aria-label="Email ID">
+              </mat-form-field>
+            </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+              <mat-form-field class="col-xs-12">
+                <mat-select placeholder="odc development center" formControlName="development" class="col-xs-12 padlr pleft0">
+                  <mat-option *ngFor="let x of options" [value]="x.value">
+                    {{ x.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                <mat-form-field class="col-xs-12">
+                  <mat-select placeholder="Odc location" formControlName="odc" class="col-xs-12 padlr pleft0">
+                    <mat-option *ngFor="let x of options" [value]="x.value">
+                      {{ x.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                  <mat-form-field class="col-xs-12">
+                    <mat-select placeholder="Tower"  formControlName="tower" class="col-xs-12 padlr pleft0">
+                      <mat-option *ngFor="let x of options" [value]="x.value">
+                        {{ x.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </li>
+                <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                    <mat-form-field class="col-xs-12">
+                      <mat-select placeholder="Floor" formControlName="floor" class="col-xs-12 padlr pleft0">
+                        <mat-option *ngFor="let x of options" [value]="x.value">
+                          {{ x.viewValue }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </li>
+                  <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad ">
+                      <mat-form-field class="col-xs-12">
+                        <mat-select placeholder="Wing"  formControlName="wing" class="col-xs-12 padlr pleft0">
+                          <mat-option *ngFor="let x of options" [value]="x.value">
+                            {{ x.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </li>
+      </ul>
+  
+      <div class="col-xs-12 nopad custom_req_title mtop20">
+          Location B address details 
+      </div>
+      <ul class="col-xs-12 nopad create_ul"	>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Client / company name" formControlName="client"  value="" aria-label="Client / company name">
+            </mat-form-field>
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="City" value=""  formControlName="city" aria-label="Client / company name">
+              </mat-form-field>
+            </li>
+            <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                  <input matInput placeholder="Street / Building" value=""  formControlName="street" aria-label="Client / company name">
+                </mat-form-field>
+              </li>
+              <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                  <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                    <input matInput placeholder="State" value="" formControlName="state" aria-label="Client / company name">
+                  </mat-form-field>
+                </li>
+                <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                    <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                      <input matInput placeholder="Country" value="" formControlName="country" aria-label="Client / company name">
+                    </mat-form-field>
+                  </li>
+                  <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+                      <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                        <input matInput placeholder="Pincode" value="" formControlName="pincode" aria-label="Client / company name">
+                      </mat-form-field>
+                    </li>
+      </ul>
+    </div>
+  
+    <div class="col-xs-12 nopad">
+        <div class="col-xs-12 nopad req_title mtop20">
+            Onsite coordinator / Customer IT contact
+         </div>
+      
+      <ul class="col-xs-12 nopad create_ul mtop12">
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+          <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+            <input matInput placeholder="Email ID" value="" formControlName="email" aria-label="Email ID">
+          </mat-form-field>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+          <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+            <input matInput placeholder="Contact number"  formControlName="contact" value="" aria-label="Contact number">
+          </mat-form-field>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col-xs-12 nopad">
+        <div class="col-xs-12 nopad req_title mtop20">
+            Client it contact details
+         </div>
+      <ul class="col-xs-12 nopad create_ul mtop12">
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+          <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+            <input matInput placeholder="Name" value="" formControlName="name" aria-label="Email ID">
+          </mat-form-field>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+          <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+            <input matInput placeholder="Designation" value="" formControlName="designation" aria-label="Contact number">
+          </mat-form-field>
+        </li>
+        <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+            <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+              <input matInput placeholder="Email id" value=""  formControlName="email1" aria-label="Contact number">
+            </mat-form-field>
+          </li>
+          <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 nopad">
+              <mat-form-field class="example-full-width col-xs-12 mtop12 padlr">
+                <input matInput placeholder="Contact no" value="" formControlName="contact1" aria-label="Contact number">
+              </mat-form-field>
+            </li>
+      </ul>
+    </div>
+  
+    <div class="col-xs-12 nopad" >
+        <div class="col-xs-12 nopad req_title mtop20">
+            Additional services
+         </div>
+          <div class="pull-left radio-btn radioBtnsAll mright50" id="rddo1">
+            <input type="radio" formControlName="radio1" name="radio1" value="Voice" class="pull-left" />
+            <label for="Radio 1_proj" class="pull-left text-capitalize font13">Voice</label>
+  
+          </div>
+          <div class="pull-left radio-btn radioBtnsAll mright50" id="rddo2">
+            <input type="radio" formControlName="radio2" name="radio2"  value="Video" class="pull-left" />
+            <label for="Radio 2_proj" class="pull-left text-capitalize font13">Video</label>
+  
+          </div>
+          <div class="pull-left radio-btn radioBtnsAll mright50" id="rddo2">
+              <input type="radio" formControlName="radio3" name="radio3" value="Both"  class="pull-left" />
+              <label for="Radio 2_proj" class="pull-left text-capitalize font13">Both</label>
+    
+            </div>
+            <div class="pull-left radio-btn radioBtnsAll mright50" id="rddo2">
+                <input type="radio" formControlName="radio4" name="radio4" value="None" class="pull-left" />
+                <label for="Radio 2_proj" class="pull-left text-capitalize font13">None</label>
+      
+              </div>
+
+              <div class="col-xs-12 nopad mtop20" >
+                  Additional information(Security,Encryption)
+                  <div>
+                      <textarea formControlName="additionalinfo">
+                          </textarea>
+                  </div>
+               </div> 
+             
+  </div>
+      <div class="col-xs-12 nopad mtop12">
+          <button class="pull-right primary-btn save_btn" [routerLink]="['./../bit-upgrade']">BACK</button>
+           <button  type="submit"class="pull-right primary-btn save_btn"   >SUBMIT</button>
+      </div>
+    </form>
+</div>
+</div>
+
