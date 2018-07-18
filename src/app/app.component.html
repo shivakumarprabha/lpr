@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="html_class">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Holiday Declaration</title>
+  </head>
+  <body class="main-contain">
+    <div class="col-xs-12 no_pad mainContainer" id="root">
+
+      <div class="col-xs-12 nopad">
+  <app-header></app-header>
+  <div class="col-xs-12 nopad mtopafterheader">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopad leftMenu w21" *ngIf="isAdmin === 'user'">
+      
+      <app-leftmenu></app-leftmenu>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopad leftMenu w21" *ngIf="isAdmin === 'admin'">
+        
+        <app-leftmenu-admin></app-leftmenu-admin>
+      </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopad rightSection w79">
+    
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+  </div>
+<!--  <app-hardware-message></app-hardware-message>
+   <app-hardware-message-myasset></app-hardware-message-myasset> -->
+<!--    <app-status></app-status> -->
+    <!--  <app-eol-issue></app-eol-issue>
+  <app-justification></app-justification> 
+  <app-error-info></app-error-info> -->
+<!--   <app-catalog></app-catalog> -->
+<!--   <app-support-mycart></app-support-mycart> -->
+<!--   <app-mycart></app-cart> -->
+  </body>  
+</html>
